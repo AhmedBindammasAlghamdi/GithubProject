@@ -13,6 +13,7 @@ public class GithubTest extends BaseClass {
     public void loginPageMethod() throws InterruptedException {
         LoginPages login = new LoginPages(driver);
 
+
         login.openGitUrl();
         login.clickOnSignInBtn();
     }
