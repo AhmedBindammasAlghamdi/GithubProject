@@ -2,6 +2,7 @@ package GithubWeb;
 
 
 import Base.BaseClass;
+import Pages.HomePages;
 import Pages.LoginPages;
 import org.testng.annotations.Test;
 
@@ -15,6 +16,9 @@ public class GithubTest extends BaseClass {
 
 
         login.openGitUrl();
+        login.ClickOnLogin();
+        login.fillEmail();
+        login.fillPassword();
         login.clickOnSignInBtn();
     }
     @Test
@@ -22,7 +26,21 @@ public class GithubTest extends BaseClass {
         LoginPages SignUp = new LoginPages(driver);
 
         SignUp.openGitUrl();
-        SignUp.clickOnSignUpBtn();
+
     }
+    @Test
+    public void createRepoMethod() throws InterruptedException {
+        HomePages home = new HomePages(driver);
+
+        loginPageMethod();
+        home.clickOnNewRepo();
+        home.fillRepoName();
+        Thread.sleep(2000);
+        home.scrollToPosition(0,600);
+        home.clickOnCreateRepo();
+        Thread.sleep(5000);
+    }
+
+
 
 }
